@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="ru.misha.model.Pet" table="pets" schema="public" catalog="spring">
+    <class name="ru.misha.model.Pet" table="pets">
         <id name="id">
             <column name="uid" sql-type="integer"/>
             <generator class="identity"/>
@@ -15,5 +15,6 @@
         <property name="age">
             <column name="age" sql-type="integer" not-null="true"/>
         </property>
+        <many-to-one name="client" column="user_id" class="ru.misha.model.Client" cascade="all"/>
     </class>
 </hibernate-mapping>

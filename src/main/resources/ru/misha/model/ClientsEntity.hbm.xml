@@ -1,22 +1,32 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC
-    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping>
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
-    <class name="ru.misha.model.Client" table="clients" schema="public" catalog="spring">
-        <id name="id">
-            <column name="uid" sql-type="integer"/>
+<hibernate-mapping>
+    <class name="ru.misha.model.Client" table="clients">
+        <meta attribute="class-description">
+            This class contains the user detail.
+        </meta>
+        <id name="id" type="int" column="uid">
             <generator class="identity"/>
         </id>
-        <property name="login">
-            <column name="login" sql-type="varchar(200)" length="200" not-null="true"/>
-        </property>
-        <property name="password">
-            <column name="password" sql-type="varchar(40)" length="40" not-null="true"/>
-        </property>
-        <property name="email">
-            <column name="email" sql-type="varchar(200)" length="200" not-null="true"/>
-        </property>
+        <property name="login" column="login" type="string"/>
+        <property name="email" column="email" type="string"/>
+        <property name="password" column="password" type="string"/>
+
+        <many-to-one name="role" column="role_id" class="ru.misha.model.Role" cascade="save-update" lazy="false"/>
+
+        <set name="pets" table="pets" lazy="false" inverse="true" cascade="all">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="ru.misha.model.Pet"/>
+        </set>
+
+
+        <set name="messages" table="messages" lazy="false" inverse="true" cascade="all">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="ru.misha.model.Message"/>
+        </set>
+
     </class>
 </hibernate-mapping>

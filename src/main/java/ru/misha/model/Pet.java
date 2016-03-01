@@ -12,9 +12,15 @@ public class Pet extends Base {
     public Pet() {
     }
 
+
+
     public Pet(String petName, int age) {
         this.petName = petName;
         this.age = age;
+    }
+
+    public Pet(int id) {
+        this.id = id;
     }
 
     public Client getClient() {

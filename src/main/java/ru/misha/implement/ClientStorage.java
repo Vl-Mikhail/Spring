@@ -1,7 +1,10 @@
 package ru.misha.implement;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import ru.misha.interfaces.ClientDAO;
 import ru.misha.model.Client;
 
@@ -10,23 +13,39 @@ import java.util.Collection;
 @Repository
 public class ClientStorage implements ClientDAO{
 
+    private final HibernateTemplate template;
+
+    @Autowired
+    public ClientStorage(HibernateTemplate template) {
+        this.template = template;
+    }
+
+
     public Collection<Client> getAll() {
-        return null;
+        return (Collection<Client>) this.template.find("from Role");
     }
 
+    @Transactional
     public int create(Client client) {
-        return 0;
+        return (int) this.template.save(client);
     }
 
+    @Transactional
     public void update(Client client) {
-
+        this.template.saveOrUpdate(client);
     }
 
+    @Transactional
     public void delete(int id) {
-
+        this.template.delete(template.get(Client.class, id));
     }
 
-    public void getByName(String name) {
+    @Override
+    public Client getClientById(int id) {
+        return this.template.get(Client.class, id);
+    }
 
+    public Collection<Client> getByName(String name) {
+        return (Collection<Client>) this.template.find("from Client c where c.login = ?", name);
     }
 }

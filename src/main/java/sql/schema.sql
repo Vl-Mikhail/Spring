@@ -3,7 +3,7 @@ create table roles (
   role varchar(200)
 );
 
-create table users (
+create table clients (
   uid serial primary key,
   login varchar(200),
   password VARCHAR(40),
