@@ -80,4 +80,16 @@ public class Client extends Base {
         this.password = password;
     }
 
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "login='" + login + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                ", messages=" + messages +
+                ", pets=" + pets +
+                '}';
+    }
 }

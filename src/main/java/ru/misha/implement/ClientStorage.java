@@ -22,7 +22,7 @@ public class ClientStorage implements ClientDAO{
 
 
     public Collection<Client> getAll() {
-        return (Collection<Client>) this.template.find("from Role");
+        return (Collection<Client>) this.template.find("from Client");
     }
 
     @Transactional
@@ -48,4 +48,6 @@ public class ClientStorage implements ClientDAO{
     public Collection<Client> getByName(String name) {
         return (Collection<Client>) this.template.find("from Client c where c.login = ?", name);
     }
+
+
 }

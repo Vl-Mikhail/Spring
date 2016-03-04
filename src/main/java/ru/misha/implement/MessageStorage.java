@@ -21,7 +21,7 @@ public class MessageStorage implements MessageDAO{
     }
 
     public Collection<Message> getAll() {
-        return (Collection<Message>) this.template.find("from Pet");
+        return (Collection<Message>) this.template.find("from Message");
     }
 
     @Transactional

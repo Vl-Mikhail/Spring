@@ -31,6 +31,7 @@ public class ClientStorageTest {
 
         int id = storages.clientDAO.create(client);
         System.out.println(storages.clientDAO.getAll());
+        storages.clientDAO.delete(id);
 
 
     }
