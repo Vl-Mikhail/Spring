@@ -48,10 +48,10 @@
     <form action="/client/new" method="post" style="margin-top: 20px">
         <tr>
             <td colspan="2">
-                <input name="login" type="text"  id="login" value="Имя" style="width: 100px" required>
-                <input name="email" type="text" id="email" value="Почта" style="width: 100px" >
-                <input name="role" type="text" id="role" value="Роль" style="width: 100px">
-                <input name="pet" type="text" id="pet" value="Животное" style="width: 100px">
+                Логин <input type="text" name="login">
+                Почта <input type="text" name="email">
+                Роль <input type="text" name="role">
+                <%--<input name="pet" type="text" id="pets" value="Животное" style="width: 100px">--%>
             </td>
             <td>
                 <input type="submit" value="Добавить" style="width: 100px" onclick="return createUser();">

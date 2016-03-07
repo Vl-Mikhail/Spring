@@ -45,9 +45,6 @@ public class RoleController {
     public String saveRole(@ModelAttribute Role role, ModelMap modelMap) {
         storages.roleDAO.create(role);
         return "redirect:roles";
-
-        
-
     }
 
 }

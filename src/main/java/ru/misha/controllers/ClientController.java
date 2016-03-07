@@ -53,9 +53,11 @@ public class ClientController {
     public String saveRole(@ModelAttribute Client client) {
         storages.clientDAO.create(client);
 
+
         return "redirect:show";
     }
 
+    //bootstrap - таблица стилий
 
 
 }
