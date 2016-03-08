@@ -26,6 +26,9 @@
             </tr>
         </c:forEach>
     </table>
+    <form action="/admin/text" method="get">
+        <input type="submit" value="Результат">
+    </form>
     <form action="${pageContext.request.contextPath}/admin/new" method="post">
         Имя <input type="text" name="role">
         <input type="submit" align="center" value="Submit">

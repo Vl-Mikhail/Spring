@@ -1,0 +1,9 @@
+body {
+    text-align: center; /* выравниваем все содержимое body по центру */
+    background: bisque;
+}
+
+.block {
+    margin-top: 200px;
+}
+

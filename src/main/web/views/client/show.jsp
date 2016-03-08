@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Show</title>
@@ -48,9 +48,9 @@
     <form action="/client/new" method="post" style="margin-top: 20px">
         <tr>
             <td colspan="2">
-                Логин <input type="text" name="login">
-                Почта <input type="text" name="email">
-                Роль <input type="text" name="role">
+                Логин <input type="text" name="login" placeholder="login">
+                Почта <input type="text" name="email" placeholder="email">
+                Роль <input type="text" name="role" placeholder="role">
                 <%--<input name="pet" type="text" id="pets" value="Животное" style="width: 100px">--%>
             </td>
             <td>
