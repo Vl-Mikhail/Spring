@@ -1,29 +1,40 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Михаил
-  Date: 08.03.2016
-  Time: 10:33
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
 <head>
-    <title>Главная стараница</title>
-    <link href="<c:url value="/css/style.css"/>" rel="stylesheet">
+    <title>Home Page</title>
+    <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
+
 </head>
 <body>
-<div class="block">
-    <form action="/client/show">
-        <label for="client">Пользователь</label>
-        <input type="text" tabindex="1" name="login" placeholder="имя" id="client" required>
-        <label for="pw">Пароль</label>
-        <input type="password" tabindex="2" name="password" id="pw" placeholder="пароль" required>
-        <input type="submit" value="Login" tabindex="3">
-    </form>
+<div class="container">
+<a href="/" style="text-align: center"> <h1>Клиника домашних животных</h1> </a>
+    <table border="1" class="table table-striped">
+        <tr>
+            <td>Номер</td>
+            <td>Логин</td>
+            <td>Почта</td>
+            <td>Животное</td>
+            <td>Роль</td>
+        </tr>
+        <c:forEach items="${clients}" var="client">
+            <tr>
+                <td>${client.id}</td>
+                <td>${client.login}</td>
+                <td>${client.email}</td>
+                <td><c:forEach items="${client.pets}" var="pet">
+                    <c:out value="${pet.petName}"/>
+                </c:forEach></td>
+                <td>${client.role.role}</td>
+            </tr>
+        </c:forEach>
+    </table>
+<a href="/login" style="text-decoration: none; text-align: center"> <h4>Войти</h4> </a>
 </div>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 </body>
 </html>

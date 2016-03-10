@@ -23,40 +23,50 @@ public class ClientController {
     private Storages storages;
 
     @RequestMapping(value = "/show", method = RequestMethod.GET)
-    public String showRole(ModelMap model) {
+    public String showClient(ModelMap model) {
         model.addAttribute("clients", storages.clientDAO.getAll());
         return "client/show";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public String deleteRole(@RequestParam(value = "id") Integer id) {
+    public String deleteClient(@RequestParam(value = "id") Integer id) {
         storages.clientDAO.delete(id);
         return "redirect:show";
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
-    public String editRole(@RequestParam(value = "id") Integer id, ModelMap model){
+    public String editClient(@RequestParam(value = "id") Integer id, ModelMap model){
         model.addAttribute("role", storages.clientDAO.getClientById(id));
         return "client/edit";
     }
 
-    // По какому принципу добавляем новую запись?
+
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String editRole(@ModelAttribute Client client, ModelMap modelMap) {
+    public String editClient(@ModelAttribute Client client, ModelMap modelMap) {
         storages.clientDAO.update(client);
         return "redirect:show";
     }
 
 
-    // По какому принципу добавляем новую запись?
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String saveRole(@ModelAttribute Client client) {
+    public String saveClient(@ModelAttribute Client client) {
         storages.clientDAO.create(client);
-
 
         return "redirect:show";
     }
 
+    @RequestMapping(value = "/find", method = RequestMethod.GET)
+    public String findClient(@RequestParam(value = "findName") String name, ModelMap model) {
+
+        if(storages.clientDAO.getByName(name).isEmpty()) {
+            model.addAttribute("clients", storages.clientDAO.getAll());
+            return "client/show";
+        } else {
+            storages.clientDAO.getByName(name);
+            model.addAttribute("clients", storages.clientDAO.getByName(name));
+            return "client/show";
+        }
+    }
     //bootstrap - таблица стилий
 
 

@@ -5,11 +5,12 @@
 <html>
 <head>
     <title>Show</title>
+    <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 </head>
 <body>
 <div class="container">
-    <a href="/client/show"> <h1>Клиника домашних животных</h1> </a>
-    <table border="1" class="border">
+    <a href="/client/show" style="text-align: center"> <h1>Клиника домашних животных</h1> </a>
+    <table border="1" class="table">
         <tr>
             <td>Номер</td>
             <td>Логин</td>
@@ -45,25 +46,55 @@
         </c:forEach>
     </table>
 
-    <form action="/client/new" method="post" style="margin-top: 20px">
-        <tr>
-            <td colspan="2">
-                Логин <input type="text" name="login" placeholder="login">
-                Почта <input type="text" name="email" placeholder="email">
-                Роль <input type="text" name="role" placeholder="role">
-                <%--<input name="pet" type="text" id="pets" value="Животное" style="width: 100px">--%>
-            </td>
-            <td>
-                <input type="submit" value="Добавить" style="width: 100px" onclick="return createUser();">
-            </td>
-        </tr>
+    <%--<form action="/client/new" method="post" style="margin-top: 20px" class="form-horizontal">--%>
+    <form class="form-horizontal" action="/client/new" method="post">
+        <div class="form-group">
+            <label for="inputlogin" class="col-sm-2 control-label">Пользователь</label>
+            <div class="col-sm-2">
+                <input type="text" name="login" class="form-control"  id="inputlogin" placeholder="Пользователь">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail" class="col-sm-2 control-label">Почта</label>
+            <div class="col-sm-2">
+                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Почта">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputRole" class="col-sm-2 control-label">Роль</label>
+            <div class="col-sm-2">
+                <input type="text" name="role" class="form-control" id="inputRole" placeholder="Роль">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPet" class="col-sm-2 control-label">Животное</label>
+            <div class="col-sm-2">
+                <input type="text" name="pet" class="form-control" id="inputPet" placeholder="Животное">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Добавить Клиента</button>
+            </div>
+        </div>
     </form>
-    <form action="/find" method="get" style="margin-top: 20px">
-        <tr>
-            <td><input name="login" type="text" value="Поиск по Имени" style="width: 200px"></td>
-            <td><input type="submit" value="Выбрать" style="width: 100px"></td>
-        </tr>
+
+    <form class="form-horizontal" action="/client/find" method="get">
+        <div class="form-group">
+            <label for="find" class="col-sm-2 control-label">Имя Клиента</label>
+            <div class="col-sm-2">
+                <input type="text" name="findName" class="form-control"  id="find" placeholder="Имя Клиента">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Поиск</button>
+            </div>
+        </div>
     </form>
 </div>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
