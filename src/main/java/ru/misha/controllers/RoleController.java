@@ -18,6 +18,7 @@ public class RoleController {
     @Autowired
     private Storages storages;
 
+
     @RequestMapping(value = "/roles", method = RequestMethod.GET)
     public String showRole(ModelMap model) {
         model.addAttribute("roles", storages.roleDAO.getAll());
