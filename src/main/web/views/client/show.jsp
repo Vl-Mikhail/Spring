@@ -35,10 +35,10 @@
                     <a href="/client/edit?id=${client.id}">
                         <input type="submit" value="Редактировать">
                     </a>
-                    <a href="/client/pet?id=${client.id}">
+                    <a href="/pet/show?id=${client.id}">
                         <input type="submit" value="Животное">
                     </a>
-                    <a href="/client/addmess?id=${client.id}">
+                    <a href="/messages/show?id=${client.id}">
                         <input type="submit" value="Сообщение">
                     </a>
                 </td>

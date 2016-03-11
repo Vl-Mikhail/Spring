@@ -34,7 +34,7 @@
     </form>
     <form action="${pageContext.request.contextPath}/admin/new" method="post">
         Имя <input type="text" name="role">
-        <input type="submit" align="center" value="Submit">
+            <input type="submit" align="center" value="Submit">
     </form>
 </div>
 

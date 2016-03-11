@@ -16,20 +16,20 @@
     <link href="<c:url value="/css/loginCSS.css"/>" rel="stylesheet">
 </head>
 
-<body>
+<body style="background: url(/images/free-background-backgrounds-widescreen.png) no-repeat; background-size: 100%;">
 <div class="container">
     <div class="col-sm-7">
         <h1 class="header">Авторизация</h1>
         <form class="form-horizontal" action="/">
             <div class="form-group">
                 <label for="inputlogin" class="col-sm-2 control-label">Пользователь</label>
-                <div class="col-sm-10">
+                <div class="col-sm-5">
                     <input type="text" name="login" class="form-control"  id="inputlogin" placeholder="Пользователь">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputPassword" class="col-sm-2 control-label">Пароль</label>
-                <div class="col-sm-10">
+                <div class="col-sm-5">
                     <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Пароль">
                 </div>
             </div>

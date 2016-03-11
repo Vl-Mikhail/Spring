@@ -45,7 +45,7 @@ public class RoleController {
 
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String saveRole(@ModelAttribute Role role, ModelMap modelMap) {
+    public String saveRole(@ModelAttribute("role") Role role, ModelMap modelMap) {
         storages.roleDAO.create(role);
         return "redirect:roles";
     }

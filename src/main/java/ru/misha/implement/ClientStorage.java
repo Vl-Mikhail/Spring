@@ -32,7 +32,7 @@ public class ClientStorage implements ClientDAO{
 
     @Transactional
     public void update(Client client) {
-        this.template.saveOrUpdate(client);
+        this.template.update(client);
     }
 
     @Transactional

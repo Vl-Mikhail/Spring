@@ -30,7 +30,12 @@ public class ClientStorageTest {
         client.setRole(role);
 
         int id = storages.clientDAO.create(client);
-        System.out.println(storages.clientDAO.getAll());
+        System.out.println(storages.clientDAO.getClientById(id));
+
+        client.setLogin("log");
+        storages.clientDAO.update(client);
+        System.out.println(storages.clientDAO.getClientById(id));
+
         storages.clientDAO.delete(id);
 
 

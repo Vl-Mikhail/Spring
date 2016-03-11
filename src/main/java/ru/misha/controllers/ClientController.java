@@ -36,13 +36,13 @@ public class ClientController {
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public String editClient(@RequestParam(value = "id") Integer id, ModelMap model){
-        model.addAttribute("role", storages.clientDAO.getClientById(id));
+        model.addAttribute("client", storages.clientDAO.getClientById(id));
         return "client/edit";
     }
 
-
+    //Не работает метод
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String editClient(@ModelAttribute Client client, ModelMap modelMap) {
+    public String editClient(@ModelAttribute("client") Client client, ModelMap modelMap) {
         storages.clientDAO.update(client);
         return "redirect:show";
     }
