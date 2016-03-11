@@ -1,12 +1,14 @@
 package ru.misha.service;
 
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Service;
 
 
 @Service("provider")
-public class AuthenticationProvider implements org.springframework.security.authentication.AuthenticationProvider {
+public class CustomAuthenticationProvider implements AuthenticationProvider {
+
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         return null;
