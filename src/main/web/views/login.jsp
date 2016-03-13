@@ -16,7 +16,7 @@
     <link href="<c:url value="/css/loginCSS.css"/>" rel="stylesheet">
 </head>
 
-<body style="background: url(/images/free-background-backgrounds-widescreen.png) no-repeat; background-size: 100%;">
+<body style="background: url(/images/Cool-White-And-Blue-Background.jpg) no-repeat; background-size: 100%;">
 <div class="container">
     <div class="col-sm-7">
         <h1 class="header">Авторизация</h1>
