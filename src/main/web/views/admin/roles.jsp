@@ -7,7 +7,7 @@
     <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 
 </head>
-<body>
+<body style="background: url(/images/Cool-White-And-Blue-Background.jpg) no-repeat; background-size: 100%;">
 <div class="container">
     <h1 style="text-align: center; margin-bottom: 40px">Колонка Админа</h1>
     <table border="1" class="table">
@@ -29,12 +29,25 @@
             </tr>
         </c:forEach>
     </table>
-    <form action="/admin/text" method="get">
-        <input type="submit" value="Результат">
+    <form action="/admin/text" method="get" class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-info">Список пользователей</button>
+            </div>
+        </div>
     </form>
-    <form action="${pageContext.request.contextPath}/admin/new" method="post">
-        Имя <input type="text" name="role">
-            <input type="submit" align="center" value="Submit">
+    <form class="form-horizontal" action="/admin/new" method="post">
+        <div class="form-group">
+            <label for="role" class="col-sm-2 control-label">Роль</label>
+            <div class="col-sm-2">
+                <input type="text" name="pet" class="form-control" id="role" placeholder="Роль">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Добавить Роль</button>
+            </div>
+        </div>
     </form>
 </div>
 

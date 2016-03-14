@@ -7,7 +7,7 @@
     <title>Edit Client</title>
     <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 </head>
-<body>
+<body style="background: url(/images/Cool-White-And-Blue-Background.jpg) no-repeat; background-size: 100%;">
 <div class="container">
     <h1 style="margin-bottom: 40px">Редактирование данных клиента</h1>
     <form class="form-horizontal" action="/client/edit" method="post">

@@ -22,6 +22,7 @@ public class PetController {
     public String showPet(@RequestParam(value = "id") Integer id, ModelMap model) {
         Set<Pet> pets = storages.clientDAO.getClientById(id).getPets();
         model.addAttribute("pets", pets);
+        model.addAttribute("client", storages.clientDAO.getClientById(id));
         return "pet/show";
     }
 
@@ -33,6 +34,12 @@ public class PetController {
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public String edit(@RequestParam(value = "id") Integer id, ModelMap model) {
+
+        return "pet/show";
+    }
+
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
+    public String newPet(@RequestParam(value = "id") Integer id, ModelMap model) {
 
         return "pet/show";
     }

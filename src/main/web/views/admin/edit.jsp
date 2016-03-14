@@ -11,7 +11,7 @@
 <head>
     <title>Edit</title>
 </head>
-<body>
+<body style="background: url(/images/Cool-White-And-Blue-Background.jpg) no-repeat; background-size: 100%;">
     <form method="post" action="/admin/edit" style="margin-top: 100px">
         <tr>
             <td>

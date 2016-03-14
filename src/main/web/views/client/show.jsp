@@ -7,7 +7,7 @@
     <title>Show</title>
     <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 </head>
-<body>
+<body style="background: url(/images/Cool-White-And-Blue-Background.jpg) no-repeat; background-size: 100%;">
 <div class="container">
     <a href="/client/show" style="text-align: center"> <h1>Клиника домашних животных</h1> </a>
     <table border="1" class="table">
