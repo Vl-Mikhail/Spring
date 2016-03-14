@@ -9,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import ru.misha.model.Role;
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
 
@@ -28,10 +29,11 @@ public class RoleStorageTest {
         role.setRole("Admin5");
         int id = storages.roleDAO.create(role);
         assertThat(storages.roleDAO.getClientById(id).getRole(), is(role.getRole()));
+        assertNotNull(storages.roleDAO.getByName("Admin5"));
         storages.roleDAO.delete(id);
 
         System.out.println(storages.roleDAO.getAll());
-        System.out.println(storages.roleDAO.getByName("Admin5"));
+
 
     }
 }

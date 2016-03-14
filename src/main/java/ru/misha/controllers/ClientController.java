@@ -67,7 +67,5 @@ public class ClientController {
             return "client/show";
         }
     }
-    //bootstrap - таблица стилий
-
 
 }
