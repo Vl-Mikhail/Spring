@@ -25,6 +25,7 @@ public class ClientController {
     @RequestMapping(value = "/show", method = RequestMethod.GET)
     public String showClient(ModelMap model) {
         model.addAttribute("clients", storages.clientDAO.getAll());
+        model.addAttribute("roles", storages.roleDAO.getAll());
         return "client/show";
     }
 
@@ -37,6 +38,7 @@ public class ClientController {
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public String editClient(@RequestParam(value = "id") Integer id, ModelMap model){
         model.addAttribute("client", storages.clientDAO.getClientById(id));
+        model.addAttribute("roles", storages.roleDAO.getAll());
         return "client/edit";
     }
 
@@ -44,14 +46,15 @@ public class ClientController {
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public String editClient(@ModelAttribute("client") Client client, ModelMap modelMap) {
         storages.clientDAO.update(client);
+
         return "redirect:show";
     }
 
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public String saveClient(@ModelAttribute Client client) {
-        storages.clientDAO.create(client);
 
+        storages.clientDAO.create(client);
         return "redirect:show";
     }
 

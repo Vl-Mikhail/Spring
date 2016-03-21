@@ -14,6 +14,7 @@
         <tr>
             <td>Номер</td>
             <td>Логин</td>
+            <td>Пароль</td>
             <td>Почта</td>
             <td>Животное</td>
             <td>Роль</td>
@@ -23,6 +24,7 @@
             <tr>
                 <td>${client.id}</td>
                 <td>${client.login}</td>
+                <td>${client.password}</td>
                 <td>${client.email}</td>
                 <td><c:forEach items="${client.pets}" var="pet">
                     <c:out value="${pet.petName}"/>
@@ -35,6 +37,9 @@
                     <a href="/client/edit?id=${client.id}">
                         <input type="submit" value="Редактировать">
                     </a>
+                    <a href="/admin/roles?id=${client.id}">
+                        <input type="submit" value="Роль">
+                    </a>
                     <a href="/pet/show?id=${client.id}">
                         <input type="submit" value="Животное">
                     </a>
@@ -45,13 +50,17 @@
             </tr>
         </c:forEach>
     </table>
-
-    <%--<form action="/client/new" method="post" style="margin-top: 20px" class="form-horizontal">--%>
     <form class="form-horizontal" action="/client/new" method="post">
         <div class="form-group">
             <label for="inputlogin" class="col-sm-2 control-label">Пользователь</label>
             <div class="col-sm-2">
                 <input type="text" name="login" class="form-control"  id="inputlogin" placeholder="Пользователь">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputpw" class="col-sm-2 control-label">Пароль</label>
+            <div class="col-sm-2">
+                <input type="text" name="password" class="form-control"  id="inputpw" placeholder="Пользователь">
             </div>
         </div>
         <div class="form-group">
@@ -61,15 +70,21 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="inputRole" class="col-sm-2 control-label">Роль</label>
+            <label class="col-sm-2 control-label">Роль</label>
             <div class="col-sm-2">
-                <input type="text" name="role" class="form-control" id="inputRole" placeholder="Роль">
+                <select name="role.role" id="role" class="form-control">
+                    <c:forEach items="${roles}" var="role">
+                        <option value="${role.role}">${role.role}</option>
+                    </c:forEach>
+                </select>
             </div>
         </div>
+
+        <%--Не смог реализовать метод добавления в Set--%>
         <div class="form-group">
             <label for="inputPet" class="col-sm-2 control-label">Животное</label>
             <div class="col-sm-2">
-                <input type="text" name="pet" class="form-control" id="inputPet" placeholder="Животное">
+                <input type="text" name="pet.petName" class="form-control" id="inputPet" placeholder="Животное">
             </div>
         </div>
         <div class="form-group">

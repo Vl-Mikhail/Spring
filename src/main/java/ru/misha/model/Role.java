@@ -8,6 +8,10 @@ public class Role extends Base {
     public Role() {
     }
 
+    public Role(int id) {
+        this.id = id;
+    }
+
     public Role(int id, String role) {
         this.id = id;
         this.role = role;

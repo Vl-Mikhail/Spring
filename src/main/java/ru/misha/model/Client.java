@@ -7,9 +7,11 @@ public class Client extends Base {
     private String login;
     private String email;
     private String password;
-    private Role role; // Роли, у одного пользователя много ролей
+    private Role role; // У одной роли, могут быть много пользователей
     private Set<Message> messages; // Список сообщений
     private Set<Pet> pets;
+
+    //Создаем еще одну переменную что бы принимать номер роли
 
 
     public Client() {
