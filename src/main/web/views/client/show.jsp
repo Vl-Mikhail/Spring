@@ -16,9 +16,10 @@
             <td>Логин</td>
             <td>Пароль</td>
             <td>Почта</td>
-            <td>Животное</td>
             <td>Роль</td>
-            <td>Действие</td>
+            <td>Животное</td>
+            <td>Сообщение</td>
+            <td>Действия над Клиентом</td>
         </tr>
         <c:forEach items="${clients}" var="client">
             <tr>
@@ -26,30 +27,46 @@
                 <td>${client.login}</td>
                 <td>${client.password}</td>
                 <td>${client.email}</td>
-                <td><c:forEach items="${client.pets}" var="pet">
-                    <c:out value="${pet.petName}"/>
-                </c:forEach></td>
-                <td>${client.role.role}</td>
+                <td>${client.role.role}<br>
+                    <a href="/admin/show?id=${client.id}">
+                        <input type="submit" value="Change" class="btn btn-info btn-sm">
+                    </a>
+                </td>
                 <td>
+                <c:forEach items="${client.pets}" var="pet">
+                    <c:out value="${pet.petName}"/><br>
+                    <a href="/pet/show?id=${client.id}">
+                        <input type="submit" value="Add" class="btn btn-info btn-sm">
+                    </a>
+                    <a href="/pet/delete?id=${pet.id}">
+                        <input type="submit" value="Del" class="btn btn-info btn-sm">
+                    </a>
+                </c:forEach><br>
+
+                </td>
+
+                <td><c:forEach items="${client.messages}" var="message">
+                    <c:out value="${message.text}"/>
+                </c:forEach><br>
+                    <a href="/message/show?id=${client.id}">
+                        <input type="submit" value="Add" class="btn btn-info btn-sm">
+                    </a>
+                    <a href="/message/delete?id=${client.id}">
+                        <input type="submit" value="Del" class="btn btn-info btn-sm">
+                    </a>
+                </td>
+                <td style="vertical-align: bottom">
                     <a href="/client/delete?id=${client.id}">
-                        <input type="submit" value="Удалить" >
+                        <input type="submit" value="Удалить" class="btn btn-info btn-sm">
                     </a>
                     <a href="/client/edit?id=${client.id}">
-                        <input type="submit" value="Редактировать">
-                    </a>
-                    <a href="/admin/roles?id=${client.id}">
-                        <input type="submit" value="Роль">
-                    </a>
-                    <a href="/pet/show?id=${client.id}">
-                        <input type="submit" value="Животное">
-                    </a>
-                    <a href="/messages/show?id=${client.id}">
-                        <input type="submit" value="Сообщение">
+                        <input type="submit" value="Редактировать" class="btn btn-info btn-sm">
                     </a>
                 </td>
             </tr>
         </c:forEach>
     </table>
+
     <form class="form-horizontal" action="/client/new" method="post">
         <div class="form-group">
             <label for="inputlogin" class="col-sm-2 control-label">Пользователь</label>
@@ -94,19 +111,23 @@
         </div>
     </form>
 
-    <form class="form-horizontal" action="/client/find" method="get">
+
+    <form class="form-inline" action="/client/find" method="get" style="margin-left: 70px">
         <div class="form-group">
-            <label for="find" class="col-sm-2 control-label">Имя Клиента</label>
-            <div class="col-sm-2">
-                <input type="text" name="findName" class="form-control"  id="find" placeholder="Имя Клиента">
-            </div>
+            <label for="exampleInputName" style="margin-right: 30px">Имя клиента</label>
+            <input type="text" class="form-control" id="exampleInputName" placeholder="Jane Doe" name="findName">
         </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-success">Поиск</button>
-            </div>
-        </div>
+        <button type="submit" class="btn btn-success">Поиск</button>
     </form>
+
+    <form class="form-inline" action="/client/find" method="get"  style="margin-left: 44px">
+        <div class="form-group">
+            <label for="exampleInputName2" style="margin-right: 30px">Кличка питомца</label>
+            <input type="text" class="form-control" id="exampleInputName2" placeholder="Кот Вася">
+        </div>
+        <button type="submit" class="btn btn-success">Поиск</button>
+    </form>
+
 </div>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>

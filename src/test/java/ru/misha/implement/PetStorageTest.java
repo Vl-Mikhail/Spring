@@ -20,14 +20,14 @@ public class PetStorageTest {
     @Test
     public void create() throws Exception {
         Pet pet = new Pet();
-        pet.setPetName("Cat");
+        pet.setPetName("Cat1");
         pet.setAge(5);
 
         int id = storages.petDAO.create(pet);
         System.out.println(id);
         storages.petDAO.delete(id);
 
-        System.out.println(storages.petDAO.getByName("Cat"));
+
 
     }
 }

@@ -26,6 +26,7 @@ public class ClientController {
     public String showClient(ModelMap model) {
         model.addAttribute("clients", storages.clientDAO.getAll());
         model.addAttribute("roles", storages.roleDAO.getAll());
+        model.addAttribute("messages", storages.messageDAO.getAll());
         return "client/show";
     }
 
@@ -53,7 +54,6 @@ public class ClientController {
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public String saveClient(@ModelAttribute Client client) {
-
         storages.clientDAO.create(client);
         return "redirect:show";
     }

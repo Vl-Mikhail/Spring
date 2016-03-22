@@ -4,44 +4,40 @@
 
 <html>
 <head>
-    <title>Show Messages</title>
+    <title>Show Role</title>
     <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 </head>
 <body style="background: url(/images/Cool-White-And-Blue-Background.jpg) no-repeat; background-size: 100%;">
 <div class="container">
-    <h1 style="text-align: center; margin-bottom: 40px">Добавление/Удалиение Сообщение у клиента ${client.login}</h1>
+    <h1 style="text-align: center; margin-bottom: 40px">Добавление/Удалиение Роли у клиента ${client.login}</h1>
     <table border="1" class="table">
         <tr>
-            <td>Сообщение</td>
+            <td>Роли</td>
             <td>Действие</td>
         </tr>
-        <c:forEach items="${messages}" var="message" varStatus="status">
             <tr>
-                <td>${message.text}</td>
+                <td>${role.role}</td>
                 <td>
-                    <a href="/message/delete?id=${message.id}">
+                    <a href="/pet/delete?id=${role.id}">
                         <input type="submit" value="Удалить" class="btn btn-info btn-sm" >
                     </a>
                 </td>
             </tr>
-        </c:forEach>
     </table>
-    <form class="form-horizontal" action="/message/new" method="post">
-        <div class="form-group">
-            <label for="message" class="col-sm-2 control-label">Сообщение</label>
-            <div class="col-sm-2">
-                <textarea rows="5" cols="45" name="text" class="form-control"  id="message"></textarea>
-
-            </div>
-        </div>
-        <div>
-            <div class="col-sm-2">
-                <input type="hidden" name="${client.id}" placeholder="Имя Клиента">
-            </div>
-        </div>
+    <form class="form-horizontal" action="/admin/new" method="post">
+            <div class="form-group">
+            <label class="col-sm-2 control-label">Роль</label>
+                <div class="col-sm-2">
+                    <select name="role.role" id="role" class="form-control">
+                        <c:forEach items="${roles}" var="role">
+                            <option value="${role.role}">${role.role}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+             </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-success">Добавить сообщение</button>
+                <button type="submit" class="btn btn-success">Изменить</button>
             </div>
         </div>
         <div class="form-group">
@@ -50,6 +46,8 @@
             </div>
         </div>
     </form>
+
+
 </div>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>

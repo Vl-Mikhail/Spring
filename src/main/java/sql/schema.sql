@@ -23,3 +23,8 @@ create table pets (
   age int,
   user_id int not null references clients(uid)
 );
+
+INSERT INTO roles (role) VALUES ('ROLE_ADMIN');
+INSERT INTO clients(login, password, email, role_id) VALUES ('Mike', '12345', '@mail', (SELECT uid FROM roles WHERE role = 'ROLE_ADMIN'));
+INSERT INTO messages(text, user_id) VALUES ('Hello World', (SELECT uid FROM clients WHERE login = 'Mike'));
+INSERT INTO pets(name, age, user_id) VALUES ('Cat', 3, (SELECT uid FROM clients WHERE login = 'Mike'));

@@ -21,6 +21,8 @@ public class ClientStorageTest {
     @Test
     public void testCreate() throws Exception {
 
+
+
         Role role = new Role();
         role.setRole("test");
 
@@ -36,7 +38,7 @@ public class ClientStorageTest {
         storages.clientDAO.update(client);
         System.out.println(storages.clientDAO.getClientById(id));
 
-        storages.clientDAO.delete(id);
+
 
 
     }

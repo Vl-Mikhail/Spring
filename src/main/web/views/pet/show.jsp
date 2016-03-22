@@ -13,24 +13,22 @@
     <table border="1" class="table">
         <tr>
             <td>Имя</td>
+            <td>Возраст</td>
             <td>Действие</td>
         </tr>
         <c:forEach items="${pets}" var="pet" varStatus="status">
             <tr>
-                <td>${pet.id}</td>
                 <td>${pet.petName}</td>
+                <td>${pet.age}</td>
                 <td>
                     <a href="/pet/delete?id=${pet.id}">
-                        <input type="submit" value="Удалить" >
-                    </a>
-                    <a href="/pet/edit?id=${pet.id}">
-                        <input type="submit" value="Редактировать">
+                        <input type="submit" value="Удалить" class="btn btn-info btn-sm" >
                     </a>
                 </td>
             </tr>
         </c:forEach>
     </table>
-    <form class="form-horizontal" action="/pet/new" method="get">
+    <form class="form-horizontal" action="/pet/new" method="post">
         <div class="form-group">
             <label for="name" class="col-sm-2 control-label">Имя Животного</label>
             <div class="col-sm-2">
@@ -45,12 +43,12 @@
         </div>
         <div>
             <div class="col-sm-2">
-                <input type="hidden" name="${client.login}" placeholder="Имя Клиента">
+                <input type="hidden" name="${id}" placeholder="Имя Клиента">
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-success">Добавить</button>
+                <button type="submit" class="btn btn-success">Добавить нового питомца</button>
             </div>
         </div>
         <div class="form-group">
