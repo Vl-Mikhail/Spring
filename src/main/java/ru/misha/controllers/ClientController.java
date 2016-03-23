@@ -1,6 +1,8 @@
 package ru.misha.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,6 +26,11 @@ public class ClientController {
 
     @RequestMapping(value = "/show", method = RequestMethod.GET)
     public String showClient(ModelMap model) {
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        //Пользователь который осуществил вход
+        String login = auth.getName();
+
         model.addAttribute("clients", storages.clientDAO.getAll());
         model.addAttribute("roles", storages.roleDAO.getAll());
         model.addAttribute("messages", storages.messageDAO.getAll());

@@ -9,6 +9,7 @@ import ru.misha.interfaces.ClientDAO;
 import ru.misha.model.Client;
 
 import java.util.Collection;
+import java.util.List;
 
 @Repository
 public class ClientStorage implements ClientDAO{
@@ -50,4 +51,9 @@ public class ClientStorage implements ClientDAO{
     }
 
 
+    @Override
+    public Client getClientByNameAndPW(String login, String password) {
+        List<Client> clients = (List<Client>) this.template.find("from Client c where c.login = ? and c.password = ?", login, password);
+        return clients.isEmpty() ? null : clients.iterator().next();
+    }
 }

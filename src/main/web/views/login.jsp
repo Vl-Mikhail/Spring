@@ -20,17 +20,19 @@
 <div class="container">
     <div class="col-sm-7">
         <h1 class="header">Авторизация</h1>
-        <form class="form-horizontal" action="/">
+        <%--<c:url value="/j_spring_security_check" var="loginUrl" />--%>
+        <c:url value="/j_spring_security_check" var="loginUrl" />
+        <form class="form-horizontal" action="${loginUrl}" method="post">
             <div class="form-group">
                 <label for="inputlogin" class="col-sm-2 control-label">Пользователь</label>
                 <div class="col-sm-5">
-                    <input type="text" name="login" class="form-control"  id="inputlogin" placeholder="Пользователь">
+                    <input type="text" name="j_username" class="form-control"  id="inputlogin" placeholder="Пользователь">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputPassword" class="col-sm-2 control-label">Пароль</label>
                 <div class="col-sm-5">
-                    <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Пароль">
+                    <input type="password" name="j_password" class="form-control" id="inputPassword" placeholder="Пароль">
                 </div>
             </div>
 
