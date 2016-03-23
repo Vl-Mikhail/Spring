@@ -23,20 +23,20 @@ public class ClientStorageTest {
 
 
 
-//        Role role = new Role();
-//        role.setRole("test");
-//
-//        Client client = new Client();
-//        client.setLogin("login");
-//        client.setEmail("@mail");
-//        client.setRole(role);
-//
-//        int id = storages.clientDAO.create(client);
-//        System.out.println(storages.clientDAO.getClientById(id));
-//
-//        client.setLogin("log");
-//        storages.clientDAO.update(client);
-//        System.out.println(storages.clientDAO.getClientById(id));
+        Role role = new Role();
+        role.setRole("test");
+
+        Client client = new Client();
+        client.setLogin("login");
+        client.setEmail("@mail");
+        client.setRole(role);
+
+        int id = storages.clientDAO.create(client);
+        System.out.println(storages.clientDAO.getClientById(id));
+
+        client.setLogin("log");
+        storages.clientDAO.update(client);
+        System.out.println(storages.clientDAO.getClientById(id));
 
         System.out.println(storages.clientDAO.getClientByNameAndPW("Mike", "12345"));
 
