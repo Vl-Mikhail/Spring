@@ -129,6 +129,8 @@
         <button type="submit" class="btn btn-success">Поиск</button>
     </form>
 
+    <a href="/j_spring_security_logout">Logout</a>
+
 </div>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>

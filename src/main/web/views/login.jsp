@@ -20,9 +20,9 @@
 <div class="container">
     <div class="col-sm-7">
         <h1 class="header">Авторизация</h1>
+
         <%--<c:url value="/j_spring_security_check" var="loginUrl" />--%>
-        <c:url value="/j_spring_security_check" var="loginUrl" />
-        <form class="form-horizontal" action="${loginUrl}" method="post">
+        <form class="form-horizontal" action="/j_spring_security_check" method="post">
             <div class="form-group">
                 <label for="inputlogin" class="col-sm-2 control-label">Пользователь</label>
                 <div class="col-sm-5">
