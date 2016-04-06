@@ -76,6 +76,7 @@
         </div>
         <div class="form-group">
             <label for="inputpw" class="col-sm-2 control-label">Пароль</label>
+
             <div class="col-sm-2">
                 <input type="text" name="password" class="form-control"  id="inputpw" placeholder="Пользователь">
             </div>
