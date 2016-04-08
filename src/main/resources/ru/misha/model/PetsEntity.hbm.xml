@@ -15,6 +15,6 @@
         <property name="age">
             <column name="age" sql-type="integer" not-null="true"/>
         </property>
-        <many-to-one name="client" column="user_id" class="ru.misha.model.Client" cascade="all"/>
+        <many-to-one name="client" column="user_id" class="ru.misha.model.Client" cascade="none"/>
     </class>
 </hibernate-mapping>
