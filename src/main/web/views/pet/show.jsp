@@ -43,7 +43,7 @@
         </div>
         <div>
             <div class="col-sm-2">
-                <input type="hidden" name="${id}" placeholder="Имя Клиента">
+                <input type="hidden" name="${client.id}" placeholder="Имя Клиента">
             </div>
         </div>
         <div class="form-group">

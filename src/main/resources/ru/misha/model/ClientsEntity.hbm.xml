@@ -17,13 +17,13 @@
 
         <many-to-one name="role" column="role_id" class="ru.misha.model.Role" cascade="save-update" lazy="false"/>
 
-        <set name="pets" table="pets" lazy="false" inverse="true" cascade="all">
+        <set name="pets" table="pets" lazy="false" inverse="true" cascade="none">
             <key column="user_id" not-null="true"/>
             <one-to-many class="ru.misha.model.Pet"/>
         </set>
 
 
-        <set name="messages" table="messages" lazy="false" inverse="true" cascade="all">
+        <set name="messages" table="messages" lazy="false" inverse="true" cascade="none">
             <key column="user_id" not-null="true"/>
             <one-to-many class="ru.misha.model.Message"/>
         </set>

@@ -35,7 +35,7 @@ public class PetController {
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String delete(@RequestParam(value = "id") Integer idPet) {
         storages.petDAO.delete(idPet);
-        return "redirect:show";
+        return "redirect:client/show";
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)

@@ -35,14 +35,13 @@
                 <td>
                 <c:forEach items="${client.pets}" var="pet">
                     <c:out value="${pet.petName}"/><br>
+                </c:forEach><br>
                     <a href="/pet/show?id=${client.id}">
                         <input type="submit" value="Add" class="btn btn-info btn-sm">
                     </a>
                     <a href="/pet/delete?id=${pet.id}">
                         <input type="submit" value="Del" class="btn btn-info btn-sm">
                     </a>
-                </c:forEach><br>
-
                 </td>
 
                 <td><c:forEach items="${client.messages}" var="message">
@@ -51,10 +50,11 @@
                     <a href="/message/show?id=${client.id}">
                         <input type="submit" value="Add" class="btn btn-info btn-sm">
                     </a>
-                    <a href="/message/delete?id=${client.id}">
+                    <a href="/message/delete?id=${message.id}">
                         <input type="submit" value="Del" class="btn btn-info btn-sm">
                     </a>
                 </td>
+
                 <td style="vertical-align: bottom">
                     <a href="/client/delete?id=${client.id}">
                         <input type="submit" value="Удалить" class="btn btn-info btn-sm">
@@ -102,7 +102,7 @@
         <div class="form-group">
             <label for="inputPet" class="col-sm-2 control-label">Животное</label>
             <div class="col-sm-2">
-                <input type="text" name="pet.petName" class="form-control" id="inputPet" placeholder="Животное">
+                <input type="text" name="pets.pet.petName" class="form-control" id="inputPet" placeholder="Животное">
             </div>
         </div>
         <div class="form-group">
