@@ -46,4 +46,13 @@ public class Pet extends Base {
     public void setAge(int age) {
         this.age = age;
     }
+
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "petName='" + petName + '\'' +
+                ", age=" + age +
+                ", client=" + client +
+                '}';
+    }
 }

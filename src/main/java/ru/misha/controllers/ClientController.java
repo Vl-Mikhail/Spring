@@ -11,11 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.misha.implement.Storages;
 import ru.misha.model.Client;
-import ru.misha.model.Pet;
-import ru.misha.model.Role;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @Controller
 @RequestMapping("/client")
@@ -50,11 +45,10 @@ public class ClientController {
         return "client/edit";
     }
 
-    //Не работает метод
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String editClient(@ModelAttribute("client") Client client, ModelMap modelMap) {
+    public String editClient(@ModelAttribute("client") Client client, @RequestParam(value = "idRole") Integer id) {
+        client.setRole(storages.roleDAO.getRoleById(id));
         storages.clientDAO.update(client);
-
         return "redirect:show";
     }
 
@@ -63,19 +57,6 @@ public class ClientController {
     public String saveClient(@ModelAttribute Client client) {
         storages.clientDAO.create(client);
         return "redirect:show";
-    }
-
-    @RequestMapping(value = "/find", method = RequestMethod.GET)
-    public String findClient(@RequestParam(value = "findName") String name, ModelMap model) {
-
-        if(storages.clientDAO.getByName(name).isEmpty()) {
-            model.addAttribute("clients", storages.clientDAO.getAll());
-            return "client/show";
-        } else {
-            storages.clientDAO.getByName(name);
-            model.addAttribute("clients", storages.clientDAO.getByName(name));
-            return "client/show";
-        }
     }
 
 }

@@ -13,8 +13,6 @@ public interface StoragesCRUD<T> {
 
     void delete(int id);
 
-    T getClientById(int id);
-
     Collection<T> getByName(String name);
 
 }

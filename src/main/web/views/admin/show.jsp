@@ -9,7 +9,7 @@
 </head>
 <body style="background: url(/images/Cool-White-And-Blue-Background.jpg) no-repeat; background-size: 100%;">
 <div class="container">
-    <h1 style="text-align: center; margin-bottom: 40px">Добавление/Удалиение Роли у клиента ${client.login}</h1>
+    <a href="/client/show" style="text-align: center; margin-bottom: 40px"><h1>Добавление/Удалиение Роли у клиента ${client.login}</h1></a>
     <table border="1" class="table">
         <tr>
             <td>Роли</td>
@@ -24,28 +24,28 @@
                 </td>
             </tr>
     </table>
-    <form class="form-horizontal" action="/admin/new" method="post">
-            <div class="form-group">
+    <form class="form-horizontal" action="/admin/change" method="post">
+        <div class="form-group">
             <label class="col-sm-2 control-label">Роль</label>
                 <div class="col-sm-2">
-                    <select name="role.role" id="role" class="form-control">
+                    <select name="idRole" id="idRole" class="form-control">
                         <c:forEach items="${roles}" var="role">
-                            <option value="${role.role}">${role.role}</option>
+                            <option value="${role.id}">${role.role}</option>
                         </c:forEach>
                     </select>
                 </div>
-             </div>
+        </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-success">Изменить</button>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="button" class="btn btn-success" onclick="history.back();">Вернуться</button>
-            </div>
-        </div>
     </form>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="button" class="btn btn-success" onclick="history.back();">Вернуться</button>
+        </div>
+    </div>
 
 
 </div>

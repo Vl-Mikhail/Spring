@@ -32,6 +32,16 @@
                 <input type="text" name="email" class="form-control" id="email" value="${client.email}">
             </div>
         </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Роль</label>
+            <div class="col-sm-2">
+                <select name="idRole" id="idRole" class="form-control">
+                    <c:forEach items="${roles}" var="role">
+                        <option value="${role.id}">${role.role}</option>
+                    </c:forEach>
+                </select>
+            </div>
+        </div>
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

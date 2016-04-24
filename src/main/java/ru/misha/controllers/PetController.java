@@ -22,30 +22,42 @@ public class PetController {
     @Autowired
     private Storages storages;
 
+    private Client client;
+
     @RequestMapping(value = "/show", method = RequestMethod.GET)
     public String showPet(@RequestParam(value = "id") Integer id, ModelMap model) {
-        Set<Pet> pets = storages.clientDAO.getClientById(id).getPets();
+        client = storages.clientDAO.getClientById(id);
+        Set<Pet> pets = client.getPets();
         model.addAttribute("pets", pets);
-        model.addAttribute("client", storages.clientDAO.getClientById(id));
+        model.addAttribute("client", client);
         model.addAttribute("id", id);
         return "pet/show";
     }
 
+    @RequestMapping(value = "/showNew")
+    public String showNew(ModelMap model){
+        Set<Pet> pets = client.getPets();
+        model.addAttribute("pets", pets);
+        model.addAttribute("client", client);
+        return "pet/show";
+    }
 
+    //Не совсем коректно работает
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public String delete(@RequestParam(value = "id") Integer idPet) {
-        storages.petDAO.delete(idPet);
-        return "redirect:client/show";
+    public String delete(@RequestParam(value = "id") Integer id) {
+        Pet pet = storages.petDAO.getPetById(id);
+        storages.petDAO.delete(id);
+        client.getPets().remove(pet);
+        return "redirect:showNew";
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public String saveClient(@ModelAttribute Pet pet) {
-        int petId = storages.petDAO.create(pet);
-//        Set<Pet> pets = new HashSet<>();
-//        pets.add(pet);
-//        Client client = storages.clientDAO.getClientById(id);
-//        client.setPets(pets);
 
-        return "redirect:show";
+        pet.setClient(client);
+        storages.petDAO.create(pet);
+        client.getPets().add(pet);
+
+        return "redirect:showNew";
     }
 }

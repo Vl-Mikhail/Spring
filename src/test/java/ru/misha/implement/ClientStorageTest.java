@@ -1,14 +1,14 @@
 package ru.misha.implement;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import ru.misha.model.Client;
+import ru.misha.model.Pet;
 import ru.misha.model.Role;
-
-import static org.junit.Assert.*;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -19,19 +19,27 @@ public class ClientStorageTest {
     Storages storages;
 
     @Test
+//    @Ignore
     public void testCreate() throws Exception {
 
-
-
+        Pet pet = new Pet();
         Role role = new Role();
+        Client client = new Client();
+
         role.setRole("test");
 
-        Client client = new Client();
         client.setLogin("login");
         client.setEmail("@mail");
+        client.setPassword("123");
         client.setRole(role);
-
         int id = storages.clientDAO.create(client);
+
+        pet.setPetName("cat");
+        pet.setClient(client);
+        storages.petDAO.create(pet);
+
+        client.getPets().add(pet);
+
         System.out.println(storages.clientDAO.getClientById(id));
 
         client.setLogin("log");

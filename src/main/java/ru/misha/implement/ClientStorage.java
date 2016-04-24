@@ -46,10 +46,14 @@ public class ClientStorage implements ClientDAO{
         return this.template.get(Client.class, id);
     }
 
+    @Override
+    public Collection<Client> getClientByNamePet(String name) {
+        return null;
+    }
+
     public Collection<Client> getByName(String name) {
         return (Collection<Client>) this.template.find("from Client c where c.login = ?", name);
     }
-
 
     @Override
     public Client getClientByNameAndPW(String login, String password) {

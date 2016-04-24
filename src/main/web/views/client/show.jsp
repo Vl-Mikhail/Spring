@@ -34,13 +34,10 @@
                 </td>
                 <td>
                 <c:forEach items="${client.pets}" var="pet">
-                    <c:out value="${pet.petName}"/><br>
+                    <c:out value="${pet.petName}"/>
                 </c:forEach><br>
                     <a href="/pet/show?id=${client.id}">
-                        <input type="submit" value="Add" class="btn btn-info btn-sm">
-                    </a>
-                    <a href="/pet/delete?id=${pet.id}">
-                        <input type="submit" value="Del" class="btn btn-info btn-sm">
+                        <input type="submit" value="Add/Delete" class="btn btn-info btn-sm">
                     </a>
                 </td>
 
@@ -48,13 +45,9 @@
                     <c:out value="${message.text}"/>
                 </c:forEach><br>
                     <a href="/message/show?id=${client.id}">
-                        <input type="submit" value="Add" class="btn btn-info btn-sm">
-                    </a>
-                    <a href="/message/delete?id=${message.id}">
-                        <input type="submit" value="Del" class="btn btn-info btn-sm">
+                        <input type="submit" value="Add/Delete" class="btn btn-info btn-sm">
                     </a>
                 </td>
-
                 <td style="vertical-align: bottom">
                     <a href="/client/delete?id=${client.id}">
                         <input type="submit" value="Удалить" class="btn btn-info btn-sm">
@@ -71,40 +64,32 @@
         <div class="form-group">
             <label for="inputlogin" class="col-sm-2 control-label">Пользователь</label>
             <div class="col-sm-2">
-                <input type="text" name="login" class="form-control"  id="inputlogin" placeholder="Пользователь">
+                <input type="text" name="login" class="form-control"  id="inputlogin" placeholder="Пользователь" required>
             </div>
         </div>
         <div class="form-group">
             <label for="inputpw" class="col-sm-2 control-label">Пароль</label>
 
             <div class="col-sm-2">
-                <input type="text" name="password" class="form-control"  id="inputpw" placeholder="Пользователь">
+                <input type="text" name="password" class="form-control"  id="inputpw" placeholder="Пароль" required>
             </div>
         </div>
         <div class="form-group">
             <label for="inputEmail" class="col-sm-2 control-label">Почта</label>
             <div class="col-sm-2">
-                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Почта">
+                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Почта" required>
             </div>
         </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Роль</label>
-            <div class="col-sm-2">
-                <select name="role.role" id="role" class="form-control">
-                    <c:forEach items="${roles}" var="role">
-                        <option value="${role.role}">${role.role}</option>
-                    </c:forEach>
-                </select>
-            </div>
-        </div>
-
-        <%--Не смог реализовать метод добавления в Set--%>
-        <div class="form-group">
-            <label for="inputPet" class="col-sm-2 control-label">Животное</label>
-            <div class="col-sm-2">
-                <input type="text" name="pets.pet.petName" class="form-control" id="inputPet" placeholder="Животное">
-            </div>
-        </div>
+        <%--<div class="form-group">--%>
+            <%--<label class="col-sm-2 control-label">Роль</label>--%>
+            <%--<div class="col-sm-2">--%>
+                <%--<select name="role.role" id="role" class="form-control">--%>
+                    <%--<c:forEach items="${roles}" var="role">--%>
+                        <%--<option value="${role.role}">${role.role}</option>--%>
+                    <%--</c:forEach>--%>
+                <%--</select>--%>
+            <%--</div>--%>
+        <%--</div>--%>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-success">Добавить Клиента</button>
@@ -113,23 +98,23 @@
     </form>
 
 
-    <form class="form-inline" action="/client/find" method="get" style="margin-left: 70px">
+    <form class="form-inline" action="/find/client" method="get" style="margin-left: 70px">
         <div class="form-group">
             <label for="exampleInputName" style="margin-right: 30px">Имя клиента</label>
-            <input type="text" class="form-control" id="exampleInputName" placeholder="Jane Doe" name="findName">
+            <input type="text" class="form-control" id="exampleInputName" placeholder="Jane Doe" name="client">
         </div>
         <button type="submit" class="btn btn-success">Поиск</button>
     </form>
 
-    <form class="form-inline" action="/client/find" method="get"  style="margin-left: 44px">
+    <form class="form-inline" action="/find/pet" method="get"  style="margin-left: 44px">
         <div class="form-group">
             <label for="exampleInputName2" style="margin-right: 30px">Кличка питомца</label>
-            <input type="text" class="form-control" id="exampleInputName2" placeholder="Кот Вася">
+            <input type="text" class="form-control" id="exampleInputName2" placeholder="Кот Вася" name="pet">
         </div>
         <button type="submit" class="btn btn-success">Поиск</button>
     </form>
 
-    <a href="/j_spring_security_logout">Logout</a>
+    <%--<a href="/j_spring_security_logout">Logout</a>--%>
 
 </div>
 

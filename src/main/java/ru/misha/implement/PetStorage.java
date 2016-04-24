@@ -39,12 +39,17 @@ public class PetStorage implements PetDAO {
         this.template.delete(template.get(Pet.class, id));
     }
 
+    public Collection<Pet> getByName(String name) {
+        return (Collection<Pet>) this.template.find("from Pet p where p.petName = ?", name);
+    }
+
     @Override
-    public Pet getClientById(int id) {
+    public Pet getPetById(int id) {
         return this.template.get(Pet.class, id);
     }
 
-    public Collection<Pet> getByName(String name) {
-        return (Collection<Pet>) this.template.find("from Pet p where p.petName = ?", name);
+    @Override
+    public Integer getPetByIdClietn(int id) {
+        return null;
     }
 }

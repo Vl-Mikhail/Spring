@@ -19,40 +19,42 @@ import java.util.Set;
 @RequestMapping("/message")
 public class MessageController {
 
-    private static Client client;
-
     @Autowired
     private Storages storages;
 
+    Client client;
+
     @RequestMapping(value = "/show", method = RequestMethod.GET)
     public String showPet(@RequestParam(value = "id") Integer id, ModelMap model) {
-        Set<Message> messages = storages.clientDAO.getClientById(id).getMessages();
-        model.addAttribute("messages", messages);
-        //Получаем клиента что бы в дальнейшем его использовать
         client = storages.clientDAO.getClientById(id);
+        Set<Message> messages = client.getMessages();
+        model.addAttribute("messages", messages);
+        model.addAttribute("client", client);
+        return "message/show";
+    }
+
+    @RequestMapping(value = "/showNew")
+    public String showNew(ModelMap model){
+        Set<Message> messages = client.getMessages();
+        model.addAttribute("messages", messages);
         model.addAttribute("client", client);
         return "message/show";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String delete(@RequestParam(value = "id") Integer id) {
+        Message message = storages.messageDAO.getMessageById(id);
         storages.messageDAO.delete(id);
-        return "redirect:client/show";
-        //return "client/show"; идет переадресация но странице не получает клиентов из базы
+        client.getMessages().remove(message);
+        return "redirect:showNew";
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public String saveClient(@ModelAttribute Message message) {
-
-        int id = storages.messageDAO.create(message);
-        Set<Message> messages = new HashSet<>();
-        messages.add(storages.messageDAO.getClientById(id)); //тут передается животное а не клиент, не правино написал интерфейс
-        client.setMessages(messages);
-
-        return "redirect:client/show";
-
-        //Ругается что в таблице не user_id не может быть null
-        //Хотя тут он прописан <input type="hidden" name="${client.id}" placeholder="Имя Клиента">
+        message.setClient(client);
+        storages.messageDAO.create(message);
+        client.getMessages().add(message);
+        return "redirect:showNew";
     }
 
 

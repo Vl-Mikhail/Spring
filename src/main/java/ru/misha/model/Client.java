@@ -11,9 +11,6 @@ public class Client extends Base {
     private Set<Message> messages; // Список сообщений
     private Set<Pet> pets;
 
-    //Создаем еще одну переменную что бы принимать номер роли
-
-
     public Client() {
     }
 

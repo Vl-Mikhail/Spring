@@ -43,12 +43,12 @@ public class RoleStorage implements RoleDAO {
         this.template.delete(template.get(Role.class, id));
     }
 
-    @Override
-    public Role getClientById(int id) {
-        return this.template.get(Role.class, id);
-    }
-
     public Collection<Role> getByName(String name) {
         return (Collection<Role>) this.template.find("from Role r where r.role = ?", name);
+    }
+
+    @Override
+    public Role getRoleById(int id) {
+        return this.template.get(Role.class, id);
     }
 }

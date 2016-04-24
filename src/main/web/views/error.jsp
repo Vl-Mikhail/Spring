@@ -1,16 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Михаил
-  Date: 10.03.2016
-  Time: 15:30
+  User: macuser
+  Date: 24.04.16
+  Time: 18:41
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Find</title>
+    <title>Не правильный Login или Password</title>
 </head>
 <body>
-    <h1>Найден: ${client}</h1>
+
 </body>
 </html>

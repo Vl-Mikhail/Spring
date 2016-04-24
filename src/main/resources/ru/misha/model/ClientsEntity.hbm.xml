@@ -15,7 +15,7 @@
         <property name="email" column="email" type="string"/>
         <property name="password" column="password" type="string"/>
 
-        <many-to-one name="role" column="role_id" class="ru.misha.model.Role" cascade="save-update" lazy="false"/>
+        <many-to-one name="role" column="role_id" class="ru.misha.model.Role" lazy="false" cascade="lock"/>
 
         <set name="pets" table="pets" lazy="false" inverse="true" cascade="none">
             <key column="user_id" not-null="true"/>

@@ -3,11 +3,10 @@ package ru.misha.implement;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import ru.misha.model.Role;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
@@ -28,7 +27,7 @@ public class RoleStorageTest {
         Role role = new Role();
         role.setRole("Admin5");
         int id = storages.roleDAO.create(role);
-        assertThat(storages.roleDAO.getClientById(id).getRole(), is(role.getRole()));
+        assertThat(storages.roleDAO.getRoleById(id).getRole(), is(role.getRole()));
         assertNotNull(storages.roleDAO.getByName("Admin5"));
         storages.roleDAO.delete(id);
 

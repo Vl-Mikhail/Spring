@@ -9,7 +9,7 @@
 </head>
 <body style="background: url(/images/Cool-White-And-Blue-Background.jpg) no-repeat; background-size: 100%;">
 <div class="container">
-    <h1 style="text-align: center; margin-bottom: 40px">Добавление/Удалиение Сообщение у клиента ${client.login}</h1>
+    <a href="/client/show" style="text-align: center; margin-bottom: 40px"><h1>Добавление/Удалиение Сообщение у клиента ${client.login}</h1></a>
     <table border="1" class="table">
         <tr>
             <td>Сообщение</td>
