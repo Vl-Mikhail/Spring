@@ -22,23 +22,23 @@
         <h1 class="header">Авторизация</h1>
 
         <%--<c:url value="/j_spring_security_check" var="loginUrl" />--%>
-        <form class="form-horizontal" action="/j_spring_security_check" method="post">
+        <form class="form-horizontal" action="<c:url value="/j_spring_security_check"/>" method="post">
             <div class="form-group">
-                <label for="inputlogin" class="col-sm-2 control-label">Пользователь</label>
+                <label for="username" class="col-sm-2 control-label">Пользователь</label>
                 <div class="col-sm-5">
-                    <input type="text" name="j_username" class="form-control"  id="inputlogin" placeholder="Пользователь">
+                    <input type="text" name="username" class="form-control"  id="username" placeholder="Пользователь">
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputPassword" class="col-sm-2 control-label">Пароль</label>
+                <label for="password" class="col-sm-2 control-label">Пароль</label>
                 <div class="col-sm-5">
-                    <input type="password" name="j_password" class="form-control" id="inputPassword" placeholder="Пароль">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Пароль">
                 </div>
             </div>
-
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-success">Войти</button>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    <button type="submit" name="submit" class="btn btn-success">Войти</button>
                 </div>
             </div>
         </form>

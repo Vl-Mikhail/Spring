@@ -40,14 +40,12 @@
                 <button type="submit" class="btn btn-success">Изменить</button>
             </div>
         </div>
-    </form>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="button" class="btn btn-success" onclick="history.back();">Вернуться</button>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" class="btn btn-success" onclick='location.href="/client/show"'>Вернуться</button>
+            </div>
         </div>
-    </div>
-
-
+    </form>
 </div>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>

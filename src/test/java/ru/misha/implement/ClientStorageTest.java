@@ -19,14 +19,12 @@ public class ClientStorageTest {
     Storages storages;
 
     @Test
-//    @Ignore
+    @Ignore
     public void testCreate() throws Exception {
 
         Pet pet = new Pet();
-        Role role = new Role();
+        Role role = storages.roleDAO.getRoleById(1);
         Client client = new Client();
-
-        role.setRole("test");
 
         client.setLogin("login");
         client.setEmail("@mail");

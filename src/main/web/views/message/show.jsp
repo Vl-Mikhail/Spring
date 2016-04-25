@@ -46,7 +46,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="button" class="btn btn-success" onclick="history.back();">Вернуться</button>
+                <button type="button" class="btn btn-success" onclick='location.href="/client/show"'>Вернуться</button>
             </div>
         </div>
     </form>
