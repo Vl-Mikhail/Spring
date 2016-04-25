@@ -3,18 +3,21 @@ create table roles (
   role varchar(200)
 );
 
+INSERT INTO roles (role) VALUES ('ROLE_ADMIN');
+INSERT INTO roles (role) VALUES ('ROLE_USER');
+
 create table clients (
   uid serial primary key,
   login varchar(200),
   password VARCHAR(40),
   email varchar(200),
-  role_id int not null references roles(uid)
+  role_id int references roles(uid)
 );
 
 create table messages (
   uid serial primary key,
   text  character varying,
-  user_id int not null references clients(uid)
+  user_id int references clients(uid)
 );
 
 create table pets (
