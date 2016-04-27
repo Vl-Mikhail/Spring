@@ -27,6 +27,7 @@
                     <c:out value="${pet.petName}"/>
                 </c:forEach></td>
                 <td>${client.role.role}</td>
+                <td><img src="<c:url value="/image/display?id=${client.id}"/>" style="width: 60px; height: 60px"></td>
             </tr>
         </c:forEach>
     </table>

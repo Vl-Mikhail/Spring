@@ -12,13 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
-@RequestMapping("/myimage")
+@RequestMapping("/image")
 public class ImageController {
 
     @Autowired
     private Storages storages;
 
-    @RequestMapping(value = "/imageDisplay")
+    @RequestMapping(value = "/display")
     public void showImage(@RequestParam("id") Integer id, HttpServletResponse response, HttpServletRequest request) throws IOException {
         Client client = storages.clientDAO.getClientById(id);
         response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
