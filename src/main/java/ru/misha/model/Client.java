@@ -3,6 +3,8 @@ package ru.misha.model;
 
 import java.util.Set;
 
+import static com.sun.tools.doclint.Entity.image;
+
 public class Client extends Base {
     private String login;
     private String email;
@@ -10,6 +12,7 @@ public class Client extends Base {
     private Role role; // У одной роли, могут быть много пользователей
     private Set<Message> messages; // Список сообщений
     private Set<Pet> pets;
+    private byte[] image;
 
     public Client() {
     }
@@ -79,6 +82,13 @@ public class Client extends Base {
         this.password = password;
     }
 
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 
     @Override
     public String toString() {

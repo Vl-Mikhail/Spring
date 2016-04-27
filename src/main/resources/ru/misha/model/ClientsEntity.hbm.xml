@@ -14,6 +14,7 @@
         <property name="login" column="login" type="string"/>
         <property name="email" column="email" type="string"/>
         <property name="password" column="password" type="string"/>
+        <property name="image" column="images" type="binary"/>
 
         <many-to-one name="role" column="role_id" class="ru.misha.model.Role" lazy="false" cascade="lock"/>
 
