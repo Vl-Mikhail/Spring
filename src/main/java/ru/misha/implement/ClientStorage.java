@@ -60,4 +60,6 @@ public class ClientStorage implements ClientDAO{
         List<Client> clients = (List<Client>) this.template.find("from Client c where c.login = ? and c.password = ?", login, password);
         return clients.isEmpty() ? null : clients.iterator().next();
     }
+
+
 }

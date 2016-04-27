@@ -16,7 +16,7 @@
                 password-parameter="password"
         />
         <security:logout logout-success-url="/login?logout" />
-        <security:csrf/>
+        <security:csrf disabled="true"/>
     </security:http>
 
     <security:authentication-manager>

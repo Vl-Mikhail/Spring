@@ -17,6 +17,7 @@
             <td>Почта</td>
             <td>Животное</td>
             <td>Роль</td>
+            <td>Фотография</td>
         </tr>
         <c:forEach items="${clients}" var="client">
             <tr>

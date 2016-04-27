@@ -80,23 +80,12 @@
                 <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Почта" required>
             </div>
         </div>
-        <%--<div class="form-group">--%>
-            <%--<label class="col-sm-2 control-label">Роль</label>--%>
-            <%--<div class="col-sm-2">--%>
-                <%--<select name="role.role" id="role" class="form-control">--%>
-                    <%--<c:forEach items="${roles}" var="role">--%>
-                        <%--<option value="${role.role}">${role.role}</option>--%>
-                    <%--</c:forEach>--%>
-                <%--</select>--%>
-            <%--</div>--%>
-        <%--</div>--%>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-success">Добавить Клиента</button>
             </div>
         </div>
     </form>
-
 
     <form class="form-inline" action="/find/client" method="get" style="margin-left: 70px">
         <div class="form-group">
@@ -113,7 +102,6 @@
         </div>
         <button type="submit" class="btn btn-success">Поиск</button>
     </form>
-
     <%--<a href="/j_spring_security_logout">Logout</a>--%>
 
 </div>
