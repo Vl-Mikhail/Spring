@@ -39,8 +39,8 @@ public class ImageController {
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public String upload(@RequestParam("file") MultipartFile file) throws IOException {
-        System.out.println(file);
-        client.setImage(file.getBytes());
+        byte[] bytes = file.getBytes();
+
         storages.clientDAO.create(client);
         return null;
     }
