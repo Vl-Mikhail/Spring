@@ -1,9 +1,7 @@
 package ru.misha.model;
 
-
 import java.util.Set;
 
-import static com.sun.tools.doclint.Entity.image;
 
 public class Client extends Base {
     private String login;

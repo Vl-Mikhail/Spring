@@ -6,6 +6,14 @@
 <head>
     <title>Show</title>
     <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            function loadUser() {
+
+            }
+        });
+    </script>
 </head>
 <body style="background: url(/images/Cool-White-And-Blue-Background.jpg) no-repeat; background-size: 100%;">
 <div class="container">
