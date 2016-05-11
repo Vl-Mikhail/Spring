@@ -11,7 +11,8 @@ create table clients (
   login varchar(200),
   password VARCHAR(40),
   email varchar(200),
-  role_id int references roles(uid)
+  role_id int references roles(uid),
+  images BYTEA
 );
 
 create table messages (

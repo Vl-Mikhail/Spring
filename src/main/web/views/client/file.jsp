@@ -7,7 +7,7 @@
 <body>
 <div align="center">
     <h1>Spring MVC - Hibernate File Upload to Database Demo</h1>
-    <form method="post" action="/image/upload" enctype="multipart/form-data">
+    <form method="post" action="/image/uploadFile" enctype="multipart/form-data">
         <table border="0">
             <tr>
                 <td>Pick file #1:</td>

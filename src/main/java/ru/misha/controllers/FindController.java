@@ -12,6 +12,7 @@ import ru.misha.model.Client;
 import ru.misha.model.Pet;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 @Controller
@@ -36,8 +37,22 @@ public class FindController {
 
     @RequestMapping(value = "/pet", method = RequestMethod.GET)
     public String findPet(@RequestParam(value = "pet") String name, ModelMap model) {
-        model.addAttribute("clients", storages.clientDAO.getByName(name));
-        return "client/show";
+        List<Client> clients = (List<Client>) storages.clientDAO.getAll();
 
+        for (Client client : clients){
+            Set<Pet> pets = client.getPets();
+            for (Pet pet: pets){
+                if(pet.getPetName().equals(name)){
+                    model.addAttribute("clients",storages.clientDAO.getByName(client.getLogin()));
+                }
+                else {
+                    model.addAttribute("clients",storages.clientDAO.getAll());
+                }
+            }
+        }
+
+        return "client/show";
     }
+
+
 }

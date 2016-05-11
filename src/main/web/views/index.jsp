@@ -8,15 +8,25 @@
 
 </head>
 <body style="background: url(/images/Cool-White-And-Blue-Background.jpg) no-repeat; background-size: 100%;">
-<div class="container">
-<a href="/client/show" style="text-align: center"><h1>Клиника домашних животных</h1></a>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Клиника домашних животных</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="#">Услуги</a></li>
+            <li><a href="#">О нас</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container" style="padding-top: 30px">
     <table border="1" class="table table-striped">
         <tr>
             <td>Номер</td>
             <td>Логин</td>
             <td>Почта</td>
             <td>Животное</td>
-            <td>Роль</td>
             <td>Фотография</td>
         </tr>
         <c:forEach items="${clients}" var="client">
@@ -27,7 +37,6 @@
                 <td><c:forEach items="${client.pets}" var="pet">
                     <c:out value="${pet.petName}"/>
                 </c:forEach></td>
-                <td>${client.role.role}</td>
                 <td><img src="<c:url value="/image/display?id=${client.id}"/>" style="width: 60px; height: 60px"></td>
             </tr>
         </c:forEach>

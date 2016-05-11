@@ -9,7 +9,5 @@ public interface ClientDAO extends StoragesCRUD<Client>{
 
     Client getClientById(int id);
 
-    Collection<Client> getClientByNamePet(String name);
-
     Client getClientByNameAndPW(String login, String password);
 }

@@ -47,9 +47,4 @@ public class PetStorage implements PetDAO {
     public Pet getPetById(int id) {
         return this.template.get(Pet.class, id);
     }
-
-    @Override
-    public Integer getPetByIdClietn(int id) {
-        return null;
-    }
 }
