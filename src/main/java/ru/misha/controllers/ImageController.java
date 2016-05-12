@@ -3,6 +3,7 @@ package ru.misha.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,39 +36,51 @@ public class ImageController {
 
         response.getOutputStream().close();
     }
-    @RequestMapping(value = "/uploadFile")
+    @RequestMapping(value = "/uploadfile")
     public String filePage(Model model ){
-        return "/client/file";
+        return "client/file";
     }
 
 
-    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
-    public @ResponseBody String handleFileUpload(@RequestParam("file") MultipartFile file) {
+    @RequestMapping(value = "/uploadfile", method = RequestMethod.POST)
+    public String handleFileUpload(@RequestParam("file") MultipartFile file, @RequestParam(value = "id") Integer id, ModelMap model) {
+
+        Client client = storages.clientDAO.getClientById(id);
+
 
         if (!file.isEmpty()) {
             try {
 
                 byte[] fileBytes = file.getBytes();
                 String rootPath = System.getProperty("catalina.home");
-                System.out.println("Server rootPath: " + rootPath);
-                System.out.println("File original name: " + file.getOriginalFilename());
-                System.out.println("File content type: " + file.getContentType());
+//                System.out.println("Server rootPath: " + rootPath);
+//                System.out.println("File original name: " + file.getOriginalFilename());
+//                System.out.println("File content type: " + file.getContentType());
+                client.setImage(fileBytes);
+                storages.clientDAO.update(client);
 
-//                File newFile = new File(rootPath + File.separator + file.getOriginalFilename());
                 File newFile = new File(rootPath + File.separator + file.getOriginalFilename());
                 BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(newFile));
                 stream.write(fileBytes);
                 stream.close();
 
                 System.out.println("File is saved under: " + rootPath + File.separator + file.getOriginalFilename());
-                return "File is saved under: " + rootPath + File.separator + file.getOriginalFilename();
+
+//                return "File is saved under: " + rootPath + File.separator + file.getOriginalFilename();
+                model.addAttribute("clients", storages.clientDAO.getAll());
+                model.addAttribute("roles", storages.roleDAO.getAll());
+                model.addAttribute("messages", storages.messageDAO.getAll());
+
+                return "client/show";
 
             } catch (Exception e) {
                 e.printStackTrace();
                 return "File upload is failed: " + e.getMessage();
             }
         } else {
-            return "File upload is failed: File is empty";
+            return "client/show";
         }
+
+
     }
 }

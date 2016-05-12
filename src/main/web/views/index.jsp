@@ -24,20 +24,21 @@
     <table border="1" class="table table-striped">
         <tr>
             <td>Номер</td>
+            <td>Фотография</td>
             <td>Логин</td>
             <td>Почта</td>
             <td>Животное</td>
-            <td>Фотография</td>
+
         </tr>
         <c:forEach items="${clients}" var="client">
             <tr>
                 <td>${client.id}</td>
+                <td><img src="<c:url value="/image/display?id=${client.id}"/>" style="width: 60px; height: 60px"></td>
                 <td>${client.login}</td>
                 <td>${client.email}</td>
                 <td><c:forEach items="${client.pets}" var="pet">
                     <c:out value="${pet.petName}"/>
                 </c:forEach></td>
-                <td><img src="<c:url value="/image/display?id=${client.id}"/>" style="width: 60px; height: 60px"></td>
             </tr>
         </c:forEach>
     </table>
