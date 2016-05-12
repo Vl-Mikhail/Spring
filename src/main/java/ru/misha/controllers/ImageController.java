@@ -53,9 +53,6 @@ public class ImageController {
 
                 byte[] fileBytes = file.getBytes();
                 String rootPath = System.getProperty("catalina.home");
-//                System.out.println("Server rootPath: " + rootPath);
-//                System.out.println("File original name: " + file.getOriginalFilename());
-//                System.out.println("File content type: " + file.getContentType());
                 client.setImage(fileBytes);
                 storages.clientDAO.update(client);
 
@@ -65,8 +62,6 @@ public class ImageController {
                 stream.close();
 
                 System.out.println("File is saved under: " + rootPath + File.separator + file.getOriginalFilename());
-
-//                return "File is saved under: " + rootPath + File.separator + file.getOriginalFilename();
                 model.addAttribute("clients", storages.clientDAO.getAll());
                 model.addAttribute("roles", storages.roleDAO.getAll());
                 model.addAttribute("messages", storages.messageDAO.getAll());

@@ -6,12 +6,11 @@
 <head>
     <title>Show</title>
     <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/JavaScript" src="/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            function loadUser() {
-
-            }
+            function SendFile() {
+                            }
         });
     </script>
     <style type="text/css">
