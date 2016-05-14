@@ -1,5 +1,7 @@
 package ru.misha.model;
 
+import org.codehaus.jackson.annotate.JsonManagedReference;
+
 import java.util.Set;
 
 
@@ -8,7 +10,10 @@ public class Client extends Base {
     private String email;
     private String password;
     private Role role; // У одной роли, могут быть много пользователей
+
     private Set<Message> messages; // Список сообщений
+
+    @JsonManagedReference
     private Set<Pet> pets;
     private byte[] image;
 

@@ -1,18 +1,19 @@
 package ru.misha.model;
 
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 public class Pet extends Base {
 
     private String petName;
 
     private int age;
 
+    @JsonBackReference
     private Client client;
 
     public Pet() {
     }
-
-
 
     public Pet(String petName, int age) {
         this.petName = petName;

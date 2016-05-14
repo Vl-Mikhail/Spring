@@ -1,9 +1,13 @@
 package ru.misha.model;
 
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 public class Message extends Base{
 
+    @JsonBackReference
     private Client client;
+
     private String text;
 
     public Message() {
