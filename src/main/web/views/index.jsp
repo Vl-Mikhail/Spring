@@ -5,6 +5,30 @@
 <head>
     <title>Home Page</title>
     <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
+    <script type="text/JavaScript" src="/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+//            $.ajax({
+//                url: '/ajax',
+//                type: 'GET',
+//                dataType: "json",
+//                contentType: "application/json ",
+//                success: function (data) {
+//                    var clen = data.length;
+//                    for (i = 0; i < clen; i++) {
+//                        document.getElementById('id').innerHTML = data[i].id;
+//                        document.getElementById('img').innerHTML = data[i].image;
+//                        document.getElementById('login').innerHTML = data[i].login;
+//                        document.getElementById('mail').innerHTML = data[i].email;
+//                        document.getElementById('pet').innerHTML = data[i].pets;
+//                    }
+//                },
+//                error: function () {
+//                    alert("Ошибка при получении данных!")
+//                }
+//            });
+        })
+    </script>
 
 </head>
 <body style="background: url(/images/Cool-White-And-Blue-Background.jpg) no-repeat; background-size: 100%;">
