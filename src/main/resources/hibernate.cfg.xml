@@ -24,6 +24,7 @@
         <mapping resource="ru/misha/model/ClientsEntity.hbm.xml"/>
         <mapping resource="ru/misha/model/MessagesEntity.hbm.xml"/>
         <mapping resource="ru/misha/model/PetsEntity.hbm.xml"/>
+        <mapping resource="ru/misha/model/ImagesEntity.xml"/>
 
 
     </session-factory>

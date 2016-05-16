@@ -14,14 +14,14 @@
                 dataType: "json",
                 contentType: "application/json ",
                 success: function (data) {
-//                    var clen = data.length;
-//                    for (i = 0; i < clen; i++) {
+                    var clen = data.length;
+                    for (i = 0; i < clen; i++) {
 //                        document.getElementById('id').innerHTML = data[i].id;
 //                        document.getElementById('img').innerHTML = data[i].image;
 //                        document.getElementById('login').innerHTML = data[i].login;
 //                        document.getElementById('mail').innerHTML = data[i].email;
 //                        document.getElementById('pet').innerHTML = data[i].pets;
-//                    }
+                    }
                     alert("Получение данных!")
                 },
                 error: function () {
@@ -63,7 +63,8 @@
                 <td>${client.email}</td>
                 <td><c:forEach items="${client.pets}" var="pet">
                     <c:out value="${pet.petName}"/>
-                </c:forEach></td>
+                </c:forEach>
+                </td>
             </tr>
         </c:forEach>
     </table>

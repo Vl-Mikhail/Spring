@@ -14,7 +14,6 @@
         <property name="login" column="login" type="string"/>
         <property name="email" column="email" type="string"/>
         <property name="password" column="password" type="string"/>
-        <property name="image" column="images" type="binary"/>
 
         <many-to-one name="role" column="role_id" class="ru.misha.model.Role" lazy="false" cascade="lock"/>
 
@@ -27,6 +26,11 @@
         <set name="messages" table="messages" lazy="false" inverse="true" cascade="none" fetch="select">
             <key column="user_id" not-null="true"/>
             <one-to-many class="ru.misha.model.Message"/>
+        </set>
+
+        <set name="images" table="images" lazy="false" inverse="true" cascade="none" fetch="select">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="ru.misha.model.Image"/>
         </set>
 
     </class>

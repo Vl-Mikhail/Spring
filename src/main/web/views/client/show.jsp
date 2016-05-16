@@ -15,7 +15,7 @@
     </script>
     <style type="text/css">
         .input_button_style
-        { margin-left:10px; text-align:center; overflow:hidden; width:130px; height:20px; border:1px solid #52c6c6; background-color: #52c6c6; border-radius:4px; }
+        { margin-left:10px; margin-top:10px; text-align:center; overflow:hidden; width:130px; height:25px; border:1px solid #52c6c6; background-color: #52c6c6; border-radius:4px; }
         .input_font_style
         { color:#fff; font-size:16px; font-weight:bold; }
         .input_input_style
@@ -40,7 +40,11 @@
         <c:forEach items="${clients}" var="client">
             <tr>
                 <td>${client.id}</td>
-                <td><img src="<c:url value="/image/display?id=${client.id}"/>" style="width: 60px; height: 60px">
+                <td>
+                    <%--Надо подумать--%>
+                    <%--<c:forEach items="${clients}" var="image">--%>
+                        <img src="<c:url value="/image/display?id=${client.id}"/>" style="width: 60px; height: 60px">
+                    <%--</c:forEach>    --%>
                     <form action="/image/uploadfile?id=${client.id}" method="post" enctype="multipart/form-data" id="upload">
                         <div class="input_button_style">
                             <div class="input_font_style">Выбрать файл</div>
@@ -65,14 +69,15 @@
                     </a>
                 </td>
 
-                <td><c:forEach items="${client.messages}" var="message">
-                    <c:out value="${message.text}"/>
-                </c:forEach><br>
+                <td>
+                    <c:forEach items="${client.messages}" var="message">
+                        <c:out value="${message.text}"/>
+                    </c:forEach><br>
                     <a href="/message/show?id=${client.id}">
                         <input type="submit" value="Add/Delete" class="btn btn-info btn-sm">
                     </a>
                 </td>
-                <td style="vertical-align: bottom">
+                <td style="vertical-align: middle">
                     <a href="/client/delete?id=${client.id}">
                         <input type="submit" value="Удалить" class="btn btn-info btn-sm">
                     </a>

@@ -3,6 +3,12 @@ create table roles (
   role varchar(200)
 );
 
+CREATE TABLE images (
+  id SERIAL PRIMARY KEY ,
+  image BYTEA,
+  user_id int references clients(uid)
+);
+
 INSERT INTO roles (role) VALUES ('ROLE_ADMIN');
 INSERT INTO roles (role) VALUES ('ROLE_USER');
 
@@ -11,8 +17,7 @@ create table clients (
   login varchar(200),
   password VARCHAR(40),
   email varchar(200),
-  role_id int references roles(uid),
-  images BYTEA
+  role_id int references roles(uid)
 );
 
 create table messages (

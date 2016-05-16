@@ -28,6 +28,6 @@ public class HomeController {
         ObjectMapper mapper = new ObjectMapper();
         mapper.writeValueAsString(storages.clientDAO.getAll());
         return mapper.writeValueAsString(storages.clientDAO.getAll());
-//        return mapper.writeValueAsString(new Client(1, "Mike", "email"));
+
     }
 }

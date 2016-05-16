@@ -11,11 +11,14 @@ public class Client extends Base {
     private String password;
     private Role role; // У одной роли, могут быть много пользователей
 
+    @JsonManagedReference
     private Set<Message> messages; // Список сообщений
 
     @JsonManagedReference
     private Set<Pet> pets;
-    private byte[] image;
+
+    @JsonManagedReference
+    private Set<Image> images;
 
     public Client() {
     }
@@ -85,12 +88,12 @@ public class Client extends Base {
         this.password = password;
     }
 
-    public byte[] getImage() {
-        return image;
+    public Set<Image> getImages() {
+        return images;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setImages(Set<Image> images) {
+        this.images = images;
     }
 
     @Override
