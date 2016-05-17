@@ -96,15 +96,5 @@ public class Client extends Base {
         this.images = images;
     }
 
-    @Override
-    public String toString() {
-        return "Client{" +
-                "login='" + login + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", role=" + role +
-                ", messages=" + messages +
-                ", pets=" + pets +
-                '}';
-    }
+
 }

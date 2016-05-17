@@ -40,11 +40,7 @@
         <c:forEach items="${clients}" var="client">
             <tr>
                 <td>${client.id}</td>
-                <td>
-                    <%--Надо подумать--%>
-                    <%--<c:forEach items="${clients}" var="image">--%>
-                        <img src="<c:url value="/image/display?id=${client.id}"/>" style="width: 60px; height: 60px">
-                    <%--</c:forEach>    --%>
+                <td><img src="<c:url value="/image/display?id=${client.id}"/>" style="width: 60px; height: 60px">
                     <form action="/image/uploadfile?id=${client.id}" method="post" enctype="multipart/form-data" id="upload">
                         <div class="input_button_style">
                             <div class="input_font_style">Выбрать файл</div>

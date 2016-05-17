@@ -38,22 +38,20 @@ public class ImageController {
 
         for (Image img : images) {
             response.getOutputStream().write(img.getImage());
+            response.getOutputStream().close();
         }
-
-        response.getOutputStream().close();
     }
 
     @RequestMapping(value = "/uploadfile", method = RequestMethod.POST)
-    public String handleFileUpload(@RequestParam("file") MultipartFile file, @RequestParam(value = "id") Integer id, ModelMap model) {
+    public String handleFileUpload(@RequestParam("file") MultipartFile file, @RequestParam(value = "id") Integer id, ModelMap model) throws IOException {
 
         Client client = storages.clientDAO.getClientById(id);
-
 
         if (!file.isEmpty()) {
             try {
 
                 byte[] fileBytes = file.getBytes();
-//                String rootPath = System.getProperty("catalina.home");
+                String rootPath = System.getProperty("catalina.home");
                 Image image = new Image();
                 image.setImage(fileBytes);
                 image.setClient(client);
@@ -62,17 +60,17 @@ public class ImageController {
                 client.getImages().add(image);
                 storages.clientDAO.update(client);
 
-//                File newFile = new File(rootPath + File.separator + file.getOriginalFilename());
-//                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(newFile));
-//                stream.write(fileBytes);
-//                stream.close();
-//                System.out.println("File is saved under: " + rootPath + File.separator + file.getOriginalFilename());
+                File newFile = new File(rootPath + File.separator + file.getOriginalFilename());
+                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(newFile));
+                stream.write(fileBytes);
+                stream.close();
+                System.out.println("File is saved under: " + rootPath + File.separator + file.getOriginalFilename());
 
                 model.addAttribute("clients", storages.clientDAO.getAll());
                 model.addAttribute("roles", storages.roleDAO.getAll());
                 model.addAttribute("messages", storages.messageDAO.getAll());
 
-                return "client/show";
+                return "redirect:/client/show";
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -80,7 +78,7 @@ public class ImageController {
                 return "File upload is failed: " + e.getMessage();
             }
         } else {
-            return "client/show";
+            return "error";
         }
 
 
