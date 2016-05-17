@@ -41,6 +41,7 @@
             <tr>
                 <td>${client.id}</td>
                 <td><img src="<c:url value="/image/display?id=${client.id}"/>" style="width: 60px; height: 60px">
+                    <%--не правильно работает--%>
                     <form action="/image/uploadfile?id=${client.id}" method="post" enctype="multipart/form-data" id="upload">
                         <div class="input_button_style">
                             <div class="input_font_style">Выбрать файл</div>
@@ -132,6 +133,6 @@
 </div>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="<c:url value="/js/bootstrap.min.js"/>"></script>
 </body>
 </html>

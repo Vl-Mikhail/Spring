@@ -5,7 +5,8 @@ create table roles (
 
 CREATE TABLE images (
   id SERIAL PRIMARY KEY ,
-  image BYTEA,
+  image BYTEA UNIQUE,
+  url VARCHAR(250),
   user_id int references clients(uid)
 );
 

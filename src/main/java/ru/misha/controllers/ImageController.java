@@ -52,19 +52,22 @@ public class ImageController {
 
                 byte[] fileBytes = file.getBytes();
                 String rootPath = System.getProperty("catalina.home");
-                Image image = new Image();
-                image.setImage(fileBytes);
-                image.setClient(client);
-                storages.imageDAO.create(image);
-
-                client.getImages().add(image);
-                storages.clientDAO.update(client);
-
                 File newFile = new File(rootPath + File.separator + file.getOriginalFilename());
                 BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(newFile));
                 stream.write(fileBytes);
                 stream.close();
                 System.out.println("File is saved under: " + rootPath + File.separator + file.getOriginalFilename());
+
+                Image image = new Image();
+                image.setImage(fileBytes);
+                image.setClient(client);
+                image.setUrl(rootPath + File.separator + file.getOriginalFilename());
+                storages.imageDAO.create(image);
+
+                client.getImages().add(image);
+                storages.clientDAO.update(client);
+
+
 
                 model.addAttribute("clients", storages.clientDAO.getAll());
                 model.addAttribute("roles", storages.roleDAO.getAll());

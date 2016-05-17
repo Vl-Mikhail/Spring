@@ -9,6 +9,10 @@
             <column name="id" sql-type="integer"/>
             <generator class="identity"/>
         </id>
+        <property name="url">
+            <column name="url" sql-type="varchar(250)"/>
+        </property>
+
         <property name="image">
             <column name="image" sql-type="binary"/>
         </property>
