@@ -6,21 +6,15 @@
 <head>
     <title>Show</title>
     <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
+    <link href="/js/assets/jquery.formstyler.css" rel="stylesheet">
     <script type="text/JavaScript" src="/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
+            $(document).ready(function() {
+            jQuery('#upload input').styler();
             function SendFile() {
                             }
         });
     </script>
-    <style type="text/css">
-        .input_button_style
-        { margin-left:10px; margin-top:10px; text-align:center; overflow:hidden; width:130px; height:25px; border:1px solid #52c6c6; background-color: #52c6c6; border-radius:4px; }
-        .input_font_style
-        { color:#fff; font-size:16px; font-weight:bold; }
-        .input_input_style
-        { margin-top:-50px; margin-left:-410px; -moz-opacity:0; filter:alpha(opacity=0); opacity:0; font-size:150px; height:100px; }
-    </style>
 </head>
 <body style="background: url(/images/Cool-White-And-Blue-Background.jpg) no-repeat; background-size: 100%;">
 <div class="container">
@@ -39,25 +33,23 @@
         </tr>
         <c:forEach items="${clients}" var="client">
             <tr>
-                <td>${client.id}</td>
-                <td><img src="<c:url value="/image/display?id=${client.id}"/>" style="width: 60px; height: 60px">
-                    <%--не правильно работает--%>
-                    <form action="/image/uploadfile?id=${client.id}" method="post" enctype="multipart/form-data" id="upload">
-                        <div class="input_button_style">
-                            <div class="input_font_style">Выбрать файл</div>
-                            <input type="file" name="file" onchange="document.getElementById('upload').submit()" class="input_input_style">
-                        </div>
+                <td style="vertical-align: middle">${client.id}</td>
+                <td><%--не правильно работает--%>
+                    <img src="<c:url value="/image/display?id=${client.id}"/>" style="width: 60px; height: 60px">
+                    <form action="/image/uploadfile?id=${client.id}" method="post" enctype="multipart/form-data" id="upload"
+                          style="margin-top: 10px">
+                        <input type="file" name="file" onchange="document.getElementById('upload').submit()">
                     </form>
                 </td>
-                <td>${client.login}</td>
-                <td>${client.password}</td>
-                <td>${client.email}</td>
-                <td>${client.role.role}<br>
+                <td style="vertical-align: middle">${client.login}</td>
+                <td style="vertical-align: middle">${client.password}</td>
+                <td style="vertical-align: middle">${client.email}</td>
+                <td style="vertical-align: middle">${client.role.role}<br>
                     <a href="/admin/show?id=${client.id}">
                         <input type="submit" value="Change" class="btn btn-info btn-sm">
                     </a>
                 </td>
-                <td>
+                <td style="vertical-align: middle">
                 <c:forEach items="${client.pets}" var="pet">
                     <c:out value="${pet.petName}"/>
                 </c:forEach><br>
@@ -66,7 +58,7 @@
                     </a>
                 </td>
 
-                <td>
+                <td style="vertical-align: middle">
                     <c:forEach items="${client.messages}" var="message">
                         <c:out value="${message.text}"/>
                     </c:forEach><br>
@@ -129,10 +121,10 @@
         <button type="submit" class="btn btn-success">Поиск</button>
     </form>
     <%--<a href="/j_spring_security_logout">Logout</a>--%>
-
 </div>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="<c:url value="/js/bootstrap.min.js"/>"></script>
+<script src="/js/assets/jquery.formstyler.min.js"></script>
 </body>
 </html>
